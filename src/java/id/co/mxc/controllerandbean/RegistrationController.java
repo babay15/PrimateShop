@@ -52,7 +52,7 @@ public class RegistrationController {
         
         if(usercheck.getUserName()==null){
             if(!registerBean.getPassword().equals(registerBean.getPasswordVerification())){
-            model.addAttribute("message", "Password verification is incorect.");
+            model.addAttribute("message", "Password verification is incorrect.");
             }
             else if(registerBean.getPassword().equals(registerBean.getPasswordVerification())){
             us.saveUser(user);
