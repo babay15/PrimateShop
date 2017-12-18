@@ -26,7 +26,7 @@
             <h3>The total payment is: Rp. ${hargaan}</h3>
         </c:if>
         <c:if test="${empty sessionScope.user}">
-            <h1>You need to <a href="/WebProject/login">log in</a> first in order to process forward.</h1>
+            <h1>You need to <a href="/WebProject/login/checkout">log in</a> first in order to process forward.</h1>
         </c:if>
         
 

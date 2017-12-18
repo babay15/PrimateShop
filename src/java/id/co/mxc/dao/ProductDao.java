@@ -36,6 +36,14 @@ public class ProductDao {
         return products;
     }
     
+    public List<Product> findLikeKeyword(String productName){
+        em = emf.createEntityManager();
+        Query query = em.createQuery("select p from Product p where p.productName like %:productName%");
+        query.setParameter("productName", productName);
+        List<Product> products = query.getResultList();
+        return products;
+    }
+    
     public Product findById(int Id){
         em = emf.createEntityManager();
         Query query = em.createQuery("Select p from Product p where p.id=:id");

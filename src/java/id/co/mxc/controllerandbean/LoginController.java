@@ -50,4 +50,28 @@ public class LoginController {
         session.setAttribute("user", user);
         return "redirect:/index";
     }
+    
+    @RequestMapping(value="/checkout")
+    public String doLoginFromCheckout(Model model){
+        LoginBean loginBean = new LoginBean();
+        model.addAttribute("loginBean", loginBean);
+        return "logincheckout";
+    }
+    
+    @RequestMapping(value="/checkout/check")
+    public String checkLoginFromCheckout(HttpSession session, @ModelAttribute("loginBean") LoginBean loginBean, Model model){
+        User user = us.findByUsername(loginBean.getUserName());
+        if(user.getUserName()==null){
+            model.addAttribute("message", "WRONG USERNAME");
+            return "login";
+        }
+        String encryptedPassword = PasswordDigest.createEncryptedPassword(loginBean.getPassword());
+        if(!encryptedPassword.equals(user.getPassword())){
+            model.addAttribute("message", "WRONG PASSWORD");
+            return "login";
+        }
+        
+        session.setAttribute("user", user);
+        return "redirect:/product/cart";
+    }
 }

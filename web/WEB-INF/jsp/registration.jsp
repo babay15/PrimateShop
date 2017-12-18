@@ -69,7 +69,8 @@
                 </tr>
        
                 <tr>
-                    <td colspan="2"></br><form:button name="submitButton" value="Submit" class="btn-primary form-control">Submit</form:button>${message}</td>
+                    
+                    <td colspan="2">${message}</br><form:button name="submitButton" value="Submit" class="btn-primary form-control">Submit</form:button></td>
                 
                 </tr>
             </table>
