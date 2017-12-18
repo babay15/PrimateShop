@@ -83,8 +83,8 @@ public class RegistrationController {
         String encryptedPass = PasswordDigest.createEncryptedPassword(registerBean.getPassword());
         String verifEncrypt = PasswordDigest.createEncryptedPassword(registerBean.getPasswordVerification());
             user.setFullName(registerBean.getFullName());            
-            user.setEmail(registerBean.getFullName());
-            user.setPhoneNumber(registerBean.getEmail());
+            user.setEmail(registerBean.getEmail());
+            user.setPhoneNumber(registerBean.getPhoneNumber());
             user.setUserName(user.getUserName());
         
         if(verifEncrypt.equals(user.getPassword())){ 
