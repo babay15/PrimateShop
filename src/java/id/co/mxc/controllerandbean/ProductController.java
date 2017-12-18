@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -71,6 +72,14 @@ public class ProductController {
         session.setAttribute("hargaan", hargaan);}
         return "checkout";
     }
+    
+    @RequestMapping("/search")
+    public String findBySearch(@RequestParam("keyword") String key, Model model){
+        List<Product> products = productDao.findLikeKeyword(key);
+        model.addAttribute("products",products);
+        return "category";
+    }
+    
     
     @RequestMapping("/remove/{key}")
     public String removeCart(HttpSession session, @PathVariable Integer key, Model model){

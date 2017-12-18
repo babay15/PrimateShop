@@ -28,11 +28,11 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
+        <form class="navbar-form navbar-left" action="${pageContext.request.contextPath}/product/search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" name="keyword">
         </div>
-          <a href="#"><span class="glyphicon glyphicon-search" style="vertical-align: central"></span></a>
+        <input type="submit"><span class="glyphicon glyphicon-search" style="vertical-align: central"></span>
       </form>
       <ul class="nav navbar-nav navbar-right">
 
