@@ -6,7 +6,6 @@
     <class>id.co.mxc.model.Product</class>
     <class>id.co.mxc.model.Cart</class>
     <class>id.co.mxc.model.Order</class>
-    <class>id.co.mxc.model.OrderCart</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>

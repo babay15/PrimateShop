@@ -32,8 +32,8 @@
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Search" name="keyword">
         </div>
-        <input type="submit"><span class="glyphicon glyphicon-search" style="vertical-align: central"></span>
-      </form>
+        <input type="submit" value="Search" class="btn form-control active">      
+        </form>
       <ul class="nav navbar-nav navbar-right">
 
         <li><a href="${pageContext.request.contextPath}/product/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart <div class="badge">${iterator}</div></a></li>
