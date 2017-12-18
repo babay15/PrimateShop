@@ -22,12 +22,40 @@
                     <table class="table">
                         <tr>
                             <td>
-                                Full Name:
+                                Username
+                            </td>
+                            <td>
+                                ${user.userName}
+                            </td>
+                        </tr>                        
+                        <tr>
+                            <td>
+                                Full Name
                             </td>
                             <td>
                                 ${user.fullName}
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                Phone Number
+                            </td>
+                            <td>
+                                ${user.phoneNumber}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email
+                            </td>
+                            <td>
+                                ${user.email}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><a href="/WebProject/registration/edit"><button class="btn-success form-control"> <span class="glyphicon glyphicon-pencil"></span> Edit Profile</button></a></td>
+                        </tr>
+
                     </table>
                     </div>
                 </div>

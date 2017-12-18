@@ -4,8 +4,10 @@
     Author     : user
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="tmf" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -24,7 +26,8 @@
         <img src="<c:url value="/resources/monkey/${product.imagePath}"/>">
         <h4>${product.productDescription}</h4>
         <h4>Category: ${product.productCategory} Primate</h4>
-        <h2>Rp. ${product.productPrice}</h2>
+        
+        <h2>Rp. <fmt:formatNumber value="${product.productPrice}"/></h2>
         <a href="addCart/${product.id}"><button class="btn btn-info btn-lg"> <span class="glyphicon glyphicon-shopping-cart"></span> ADD TO CART</button></a>
         </div>
         <hr>

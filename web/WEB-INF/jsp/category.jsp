@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,7 +35,7 @@
                 </td>
                 <td>
                     
-                    <h1>Rp. ${i.productPrice}</h1>
+                    <h1>Rp. <fmt:formatNumber value="${i.productPrice}"/></h1>
                 </td>
                 <td>
                     <a href="/WebProject/product/addCart/${i.id}"><button class="btn btn-info btn-lg"> <span class="glyphicon glyphicon-shopping-cart"></span> ADD TO CART</button></a>
