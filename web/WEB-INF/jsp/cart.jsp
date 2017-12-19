@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,7 +39,41 @@
         </table>
             <c:if test="${not empty sessionScope.cartBean.cartList}">
             <h2>Total : Rp. ${hargaTotal}</h2>
-            <a href="/WebProject/product/checkout"><button class="btn btn-primary"> CHECK OUT </button></a>
+            <form:form action="${pageContext.request.contextPath}/product/checkout" modelAttribute="addressBean" method="POST">
+                <table class="table table-condensed">
+                    <tr>
+                        <td>
+                            <form:label path="address">Address</form:label>
+                        </td>
+                        <td>
+                            <form:textarea path="address" required="TRUE"></form:textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form:label path="city">City</form:label>
+                        </td>
+                        <td>
+                            <form:input path="city" required="true"></form:input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form:label path="state">State</form:label>                            
+                        </td>
+                        <td>
+                            <form:input path="state" required="true"></form:input>                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                         <form:button name="submitButton" value="Submit" class="btn-primary form-control">CHECK OUT</form:button>                            
+                        </td>
+                    </tr>
+                </table>  
+            </form:form>
+            
+
             </c:if>
             <c:if test="${empty sessionScope.cartBean.cartList}">
             <h2>Your cart is still empty.</h2>

@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,18 +56,25 @@ public class ProductController {
     }
     
     @RequestMapping("/cart")
-    public String toCart(){
+    public String toCart(Model model){
+        AddressBean addressBean = new AddressBean();
+        model.addAttribute("addressBean", addressBean);
         return "cart";
     }
     
     @RequestMapping("/checkout")
-    public String checkOut(HttpSession session){
+    public String checkOut(@ModelAttribute("addressBean") AddressBean addressBean, HttpSession session){
+        
+                
+        
+        
         String hargaan = session.getAttribute("hargaTotal").toString();
         User user = (User) session.getAttribute("user");
         if(user==null){
         session.setAttribute("hargaan", "You need to log in first in order to process forward.");
         }
         else{
+        session.setAttribute("addressBean", addressBean);
         session.setAttribute("iterator", 0);
         session.removeAttribute("cartBean");
         session.setAttribute("hargaan", hargaan);}
@@ -124,7 +132,6 @@ public class ProductController {
         
         String hargaTotalan = df.format(hargaTotal);
         
-
         session.setAttribute("hargaTotal", hargaTotalan);
         session.setAttribute("iterator", iterator);
         session.setAttribute("cartBean", cartBean);

@@ -23,8 +23,12 @@
         <div class="container">
         <c:if test="${not empty sessionScope.user}">
             <h1>Check out successful!</h1>
-            <h3> Thank you for using our service.</h3>
             <h3>The total payment is: Rp. ${hargaan}</h3>
+            <h3>Your order will be sent to the address below:</h3>
+            <h3>${addressBean.address}</h3>
+            <h3>${addressBean.city} City, ${addressBean.state}</h3>
+            <h1> Thank you for using our service.</h1>
+
         </c:if>
         <c:if test="${empty sessionScope.user}">
             <h1>You need to <a href="/WebProject/login/checkout">log in</a> first in order to process forward.</h1>
